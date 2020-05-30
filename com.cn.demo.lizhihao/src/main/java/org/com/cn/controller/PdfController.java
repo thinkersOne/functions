@@ -29,8 +29,9 @@ public class PdfController {
     /**
      * HTML预览
      */
-    @RequestMapping(value = "/previewHtml", method = RequestMethod.POST)
+    @RequestMapping(value = "previewHtml")
     public String previewHtml() throws IOException, TemplateException {
+        Response resultResponse = new Response();
         Map<String, Object> map = generatorPDF();
         String s = TemplateFactory.generateHtmlFromFtl("long_term_pdf.ftl", map);
         return s;
@@ -39,8 +40,8 @@ public class PdfController {
      * pdf下载
      *9
      */
-    @RequestMapping(value = "/downloadContract", method = RequestMethod.GET)
-    public Response downloadContractPDF(HttpServletResponse response) throws IOException, TemplateException {
+    @RequestMapping(value = "downloadContract", method = RequestMethod.GET)
+    public Response downloadContractPDF(HttpServletResponse response){
         Response resultResponse = new Response();
         Map<String, Object> map = generatorPDF();
         String pdfName = "contract"+ DateTools.getTime14()+".pdf";

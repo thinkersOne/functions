@@ -142,14 +142,6 @@ public class TemplateFactory {
         temp.process(map, out);
         return out.toString();
     }
-    public static String generateHtml(String name,
-                                             Map<String, String> map) throws IOException, TemplateException {
-        Writer out = new StringWriter(2048);
-        Template temp = getTemplateByName(name);
-        temp.setEncoding(ENCODING);
-        temp.process(map, out);
-        return out.toString();
-    }
 
     /**
      * HTML代码转PDF文档
