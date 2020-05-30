@@ -11,7 +11,11 @@
   <name>com.cn.demo.lizhihao</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
-
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.5.2.RELEASE</version>
+  </parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>1.7</maven.compiler.source>
@@ -19,7 +23,7 @@
   </properties>
 
   <dependencies>
-
+<!--ocr-->
     <dependency>
       <groupId>com.alibaba</groupId>
       <artifactId>fastjson</artifactId>
@@ -35,7 +39,6 @@
       <artifactId>httpcore</artifactId>
       <version>4.2.1</version>
     </dependency>
-
     <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
@@ -48,6 +51,37 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
+
+<!--    springboot web-->
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-web</artifactId>
+    </dependency>
+
+    <!-- pdf 生成-->
+    <dependency>
+      <groupId>org.freemarker</groupId>
+      <artifactId>freemarker</artifactId>
+      <version>2.3.25-incubating</version>
+    </dependency>
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>itext-asian</artifactId>
+      <version>5.2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.itextpdf</groupId>
+      <artifactId>itextpdf</artifactId>
+      <version>5.5.6</version>
+    </dependency>
+    <!-- FlyingSaucer依赖
+    https://mvnrepository.com/artifact/org.xhtmlrenderer/flying-saucer-pdf -->
+    <dependency>
+      <groupId>org.xhtmlrenderer</groupId>
+      <artifactId>flying-saucer-pdf</artifactId>
+      <version>9.1.12</version>
+    </dependency>
+
   </dependencies>
 
   <build>
@@ -91,6 +125,12 @@
         <plugin>
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
+        </plugin>
+
+<!--        springboot 启动插件-->
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
         </plugin>
       </plugins>
     </pluginManagement>

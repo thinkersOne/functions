@@ -1,5 +1,7 @@
 package org.com.cn.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 import org.apache.http.Header;
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
@@ -8,10 +10,17 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.CoreConnectionPNames;
+import org.springframework.http.*;
+import org.springframework.web.client.RestTemplate;
 
 import java.nio.charset.Charset;
+import java.util.Map;
 
 public class PostUtils {
+    static RestTemplate restTemplate = new RestTemplate();
+    static{
+        restTemplate.getMessageConverters().add(new FastJsonHttpMessageConverter());
+    }
 
     public String getEntityString(String url,String jsonParam){
         HttpPost post = null;
@@ -55,6 +64,32 @@ public class PostUtils {
                     e.printStackTrace();
                 }
             }
+        }
+        return null;
+    }
+
+    /**
+     * post请求 返回data 对象body实体
+     * @return
+     */
+    public static <T> T  post(Map<String,Object> map, String url,Class<T> tClass){
+        if(map == null){
+            return null;
+        }
+        ResponseEntity<T> stringResponseEntity = null;
+        try {
+            String paramJson = JSON.toJSONString(map);
+            HttpHeaders requestHeaders = new HttpHeaders();
+            requestHeaders.setContentType(MediaType.APPLICATION_JSON);
+            HttpEntity<String> httpEntity = new HttpEntity<>(paramJson,requestHeaders);
+            stringResponseEntity = restTemplate.exchange(url, HttpMethod.POST, httpEntity, tClass);
+            if(stringResponseEntity.getStatusCode().value() == 200){
+                T body = stringResponseEntity.getBody();
+                return body;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
         }
         return null;
     }
