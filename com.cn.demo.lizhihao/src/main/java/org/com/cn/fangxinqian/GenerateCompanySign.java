@@ -9,7 +9,7 @@ import java.util.Map;
 /**
  * 生成公章
  */
-public class GenerateSign {
+public class GenerateCompanySign {
     private static String url = "https://api.fangxinqian.cn/free/sign/generate";
 
     public static void main(String[] args) {
