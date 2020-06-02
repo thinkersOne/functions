@@ -12,7 +12,6 @@ import org.xhtmlrenderer.pdf.ITextRenderer;
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletResponse;
 import java.io.*;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +34,7 @@ public class TemplateFactory {
     private static Configuration conf = new Configuration();
     // 邮件模板缓存池
     private static Map<String, Template> tempMap = new HashMap<String, Template>();
+
     static {
         // 设置模板文件路径
         conf.setClassForTemplateLoading(TemplateFactory.class, templatePath);
@@ -43,12 +43,10 @@ public class TemplateFactory {
     /**
      * 通过模板文件名称获取指定模板
      *
-     * @param name
-     *            模板文件名称
-     * @return Template 模板对象
+     * @param name 模板文件名称
+     * @return Template
      * @throws IOException
      * @Description:
-     * @return Template
      */
     public static Template getTemplateByName(String name) throws IOException {
         if (tempMap.containsKey(name)) {
@@ -68,12 +66,10 @@ public class TemplateFactory {
     /**
      * 根据指定模板将内容输出到控制台
      *
-     * @param name
-     *            模板文件名称
-     * @param map
-     *            与模板内容转换对象
-     * @Description:
+     * @param name 模板文件名称
+     * @param map  与模板内容转换对象
      * @return void
+     * @Description:
      */
     public static void outputToConsole(String name, Map<String, String> map) {
         try {
@@ -91,14 +87,11 @@ public class TemplateFactory {
     /**
      * 根据指定模板将内容直接输出到文件
      *
-     * @param name
-     *            模板文件名称
-     * @param map
-     *            与模板内容转换对象
-     * @param outFile
-     *            输出的文件绝对路径
-     * @Description:
+     * @param name    模板文件名称
+     * @param map     与模板内容转换对象
+     * @param outFile 输出的文件绝对路径
      * @return void
+     * @Description:
      */
     public static void outputToFile(String name, Map<String, String> map,
                                     String outFile) {
@@ -123,16 +116,12 @@ public class TemplateFactory {
     }
 
     /**
-     *
-     * @param name
-     *            模板文件的名称
-     * @param map
-     *            与模板内容转换对象
-     * @return
+     * @param name 模板文件的名称
+     * @param map  与模板内容转换对象
+     * @return String
      * @throws IOException
      * @throws TemplateException
      * @Description:
-     * @return String
      */
     public static String generateHtmlFromFtl(String name,
                                              Map<String, Object> map) throws IOException, TemplateException {
@@ -143,17 +132,26 @@ public class TemplateFactory {
         return out.toString();
     }
 
+
+    public static String generateHtmlFromFtl(String name,Object object) throws IOException, TemplateException {
+        Writer out = new StringWriter(2048);
+        Template temp = getTemplateByName(name);
+        temp.setEncoding(ENCODING);
+        temp.process(object, out);
+        return out.toString();
+    }
+
     /**
      * HTML代码转PDF文档
      *
-     * @param htmlString 待转换的HTML代码
+     * @param htmlString  待转换的HTML代码
      * @param storagePath 保存为PDF文件的路径
      */
-    public static void parsePdf(String htmlString,String storagePath) {
+    public static void parsePdf(String htmlString, String storagePath) {
         FileOutputStream os = null;
         try {
             File file = new File(storagePath);
-            if(!file.exists()) {
+            if (!file.exists()) {
                 file.createNewFile();
             }
             os = new FileOutputStream(file);
@@ -172,7 +170,7 @@ public class TemplateFactory {
         } catch (com.lowagie.text.DocumentException e) {
             log.error(e.getMessage());
         } finally {
-            if(null != os) {
+            if (null != os) {
                 try {
                     os.close();
                 } catch (IOException e) {
@@ -206,7 +204,7 @@ public class TemplateFactory {
         } catch (com.lowagie.text.DocumentException e) {
             log.error(e.getMessage());
         } finally {
-            if(null != os) {
+            if (null != os) {
                 try {
                     os.close();
                 } catch (IOException e) {
@@ -215,32 +213,33 @@ public class TemplateFactory {
             }
         }
     }
+
     //下载方法
-    public static void downLoad(HttpServletResponse resp, String allPath, String suffix){
+    public static void downLoad(HttpServletResponse resp, String allPath, String suffix) {
         resp.setCharacterEncoding("utf-8");
-    //这里是一个生成名字的方法，我是用了一个我们自己的公共类，按照日期生成名字
-        String name = System.currentTimeMillis()+""; //根据后缀判断resp的题头文件
-        if("html".equals(suffix)){
+        //这里是一个生成名字的方法，我是用了一个我们自己的公共类，按照日期生成名字
+        String name = System.currentTimeMillis() + ""; //根据后缀判断resp的题头文件
+        if ("html".equals(suffix)) {
             resp.setContentType("text/html");
-        }
-        else if("doc".equals(suffix)){
+        } else if ("doc".equals(suffix)) {
             resp.setContentType("application/msword");
-        } else if("pdf".equals(suffix)){
+        } else if ("pdf".equals(suffix)) {
             resp.setContentType("application/PDF");
         }
         resp.addHeader("Content-Disposition", "attachment;filename=" + name + suffix);
-    //开始下载
+        //开始下载
         File file = new File(allPath);
         try {
             InputStream fin = new FileInputStream(file);
             ServletOutputStream out = resp.getOutputStream();
             byte[] buffer = new byte[512];
-    // 缓冲区
-             int bytesToRead = -1;
-    // 通过循环将读入的文件的内容输出到浏览器中
-            while((bytesToRead = fin.read(buffer)) != -1) {
-                out.write(buffer, 0, bytesToRead); }
-        }catch (IOException e) {
+            // 缓冲区
+            int bytesToRead = -1;
+            // 通过循环将读入的文件的内容输出到浏览器中
+            while ((bytesToRead = fin.read(buffer)) != -1) {
+                out.write(buffer, 0, bytesToRead);
+            }
+        } catch (IOException e) {
             log.error(e.getMessage());
         }
     }
