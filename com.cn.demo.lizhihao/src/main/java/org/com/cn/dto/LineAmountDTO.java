@@ -3,11 +3,29 @@ package org.com.cn.dto;
 import java.math.BigDecimal;
 
 public class LineAmountDTO {
+    /**
+     * 线路名
+     */
     private String lineName;
+    /**
+     * 车型名
+     */
     private String vehicleTypeName;
+    /**
+     * 运输点数
+     */
     private Integer portCount;
+    /**
+     * 结算里程
+     */
     private BigDecimal settleDistance;
+    /**
+     * 时效数
+     */
     private Integer runtimeMinute;
+    /**
+     * 结算价格
+     */
     private BigDecimal amount;
 
     public String getLineName() {

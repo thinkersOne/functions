@@ -3,13 +3,16 @@ package org.com.cn.dto;
 import java.math.BigDecimal;
 import java.util.List;
 
-public class LongTermContractDTO {
+/**
+ * 长期合同模板入参
+ */
+public class ShortTermContractDTO {
     /**
-     * 甲方
+     * 甲方公司
      */
     private String purchaserCompanyName;
     /**
-     * 乙方
+     * 乙方公司/个人
      */
     private String sellerCompanyName;
     /**
@@ -17,30 +20,15 @@ public class LongTermContractDTO {
      */
     private String idCardName;
     /**
-     * 项目名
+     * 乙方车牌号
      */
-    private String projectName;
-    /**
-     * 油卡支付
-     */
-    private BigDecimal fuelCardRatio;
-    /**
-     * 开票方式   根据 是否选择了  是否开票税点 来判断
-     */
-    private Boolean enableTaxPoint;
-    /**
-     * 开票税点
-     */
-    private String taxPoint;
-    /**
-     * 运费账期  即  结算周期
-     */
-    private Integer settlementCycle;
-
     private String vehicleLicense;
+    /**
+     * 车型
+     */
     private String vehicleTypeName;
     /**
-     * 合作期限  合同 起止 日期
+     * 合作起止日期
      */
     private String startYear;
     private String startMonth;
@@ -49,7 +37,7 @@ public class LongTermContractDTO {
     private String endMonth;
     private String endDay;
     /**
-     * 附表一  线路信息
+     * 线路信息
      */
     private List<LineAmountDTO> lineAmountDTOList;
     /**
@@ -57,37 +45,22 @@ public class LongTermContractDTO {
      */
     private BigDecimal deposits;
     /**
-     * 乙方银行账号信息
+     * 银行
      */
     private String sellerBankName;
+    /**
+     * 账号
+     */
     private String sellerBankAccount;
     /**
-     * 乙方 纳税人识别号
+     * 甲方电话
      */
-    private String sellerTaxNo;
+    private String purchaserPhone;
     /**
-     * 乙方地址
+     * 签署时间
      */
-    private String sellerAddress;
-    /**
-     * 乙方电话
-     */
-    private String sellerPhone;
-    /**
-     * 签署日期 ： 以当前时间 来
-     */
-    private String signTimeYear;
-    private String signTimeMonth;
-    private String signTimeDay;
+    private String signTime;
 
-
-    public String getTaxPoint() {
-        return taxPoint;
-    }
-
-    public void setTaxPoint(String taxPoint) {
-        this.taxPoint = taxPoint;
-    }
 
     public String getPurchaserCompanyName() {
         return purchaserCompanyName;
@@ -111,38 +84,6 @@ public class LongTermContractDTO {
 
     public void setIdCardName(String idCardName) {
         this.idCardName = idCardName;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
-
-    public BigDecimal getFuelCardRatio() {
-        return fuelCardRatio;
-    }
-
-    public void setFuelCardRatio(BigDecimal fuelCardRatio) {
-        this.fuelCardRatio = fuelCardRatio;
-    }
-
-    public Boolean getEnableTaxPoint() {
-        return enableTaxPoint;
-    }
-
-    public void setEnableTaxPoint(Boolean enableTaxPoint) {
-        this.enableTaxPoint = enableTaxPoint;
-    }
-
-    public Integer getSettlementCycle() {
-        return settlementCycle;
-    }
-
-    public void setSettlementCycle(Integer settlementCycle) {
-        this.settlementCycle = settlementCycle;
     }
 
     public String getVehicleLicense() {
@@ -241,51 +182,19 @@ public class LongTermContractDTO {
         this.sellerBankAccount = sellerBankAccount;
     }
 
-    public String getSellerTaxNo() {
-        return sellerTaxNo;
+    public String getPurchaserPhone() {
+        return purchaserPhone;
     }
 
-    public void setSellerTaxNo(String sellerTaxNo) {
-        this.sellerTaxNo = sellerTaxNo;
+    public void setPurchaserPhone(String purchaserPhone) {
+        this.purchaserPhone = purchaserPhone;
     }
 
-    public String getSellerAddress() {
-        return sellerAddress;
+    public String getSignTime() {
+        return signTime;
     }
 
-    public void setSellerAddress(String sellerAddress) {
-        this.sellerAddress = sellerAddress;
-    }
-
-    public String getSellerPhone() {
-        return sellerPhone;
-    }
-
-    public void setSellerPhone(String sellerPhone) {
-        this.sellerPhone = sellerPhone;
-    }
-
-    public String getSignTimeYear() {
-        return signTimeYear;
-    }
-
-    public void setSignTimeYear(String signTimeYear) {
-        this.signTimeYear = signTimeYear;
-    }
-
-    public String getSignTimeMonth() {
-        return signTimeMonth;
-    }
-
-    public void setSignTimeMonth(String signTimeMonth) {
-        this.signTimeMonth = signTimeMonth;
-    }
-
-    public String getSignTimeDay() {
-        return signTimeDay;
-    }
-
-    public void setSignTimeDay(String signTimeDay) {
-        this.signTimeDay = signTimeDay;
+    public void setSignTime(String signTime) {
+        this.signTime = signTime;
     }
 }
