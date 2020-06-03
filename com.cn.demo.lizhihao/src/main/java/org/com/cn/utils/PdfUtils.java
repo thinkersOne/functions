@@ -113,10 +113,10 @@ public class PdfUtils {
      * @param out          输出流
      * @throws Exception 模板无法找到、模板语法错误、IO异常
      */
-    private static void generateAll( String templateName, OutputStream out,Map<String, Object> map) throws Exception {
+    private static void generateAll( String templateName, OutputStream out,Object obj) throws Exception {
 //        ITextRenderer renderer = new ITextRenderer();
         ITextRenderer3 renderer = new ITextRenderer3();
-        Document doc = generateDoc(templateName,map);
+        Document doc = generateDoc(templateName,obj);
         renderer.setDocument(doc, null);
         //设置字符集(宋体),此处必须与模板中的<body style="font-family: SimSun">一致,区分大小写,不能写成汉字"宋体"
         ITextFontResolver fontResolver = renderer.getFontResolver();
@@ -127,12 +127,7 @@ public class PdfUtils {
         //展现和输出pdf
         renderer.layout();
         renderer.createPDF(out, false);
-//        Document docAppend = generateDoc(templateName,map);
-//        renderer.setDocument(docAppend, null);
-//        renderer.writeNextDocument(); //写下一个pdf页面
         renderer.finishPDF(); //完成pdf写入
-        PdfPageEvent pdfPageEvent = renderer.getPdfPageEvent();
-        System.out.println(JSON.toJSONString(pdfPageEvent));
     }
 
     private static GeneratePdfModel generateAll(String templateName, Object object,List<String> primaryKeys) throws Exception {
@@ -298,26 +293,26 @@ public class PdfUtils {
         }
     }
 
-//    public static void download(String templateName, Object object, HttpServletResponse response, String fileName) {
-//        // 设置编码、文件ContentType类型、文件头、下载文件名
-//        response.setCharacterEncoding("utf-8");
-//        response.setContentType("multipart/form-data");
-//        try {
-//            response.setHeader("Content-Disposition", "attachment;fileName=" +
-//                    new String(fileName.getBytes("gb2312"), "ISO8859-1"));
-//        } catch (UnsupportedEncodingException e) {
-//            LOGGER.error(e.getMessage(), e);
-//        }
-//        ServletOutputStream out = null;
-//        try{
-//            out = response.getOutputStream();
-//            generateAll(templateName, out, object);
-//            out.flush();
-//
-//        } catch (Exception e) {
-//            LOGGER.error(e.getMessage(), e);
-//        }
-//    }
+    public static void download(String templateName, Object object, HttpServletResponse response, String fileName) {
+        // 设置编码、文件ContentType类型、文件头、下载文件名
+        response.setCharacterEncoding("utf-8");
+        response.setContentType("multipart/form-data");
+        try {
+            response.setHeader("Content-Disposition", "attachment;fileName=" +
+                    new String(fileName.getBytes("gb2312"), "ISO8859-1"));
+        } catch (UnsupportedEncodingException e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+        ServletOutputStream out = null;
+        try{
+            out = response.getOutputStream();
+            generateAll(templateName, out, object);
+            out.flush();
+
+        } catch (Exception e) {
+            LOGGER.error(e.getMessage(), e);
+        }
+    }
 
     public static GeneratePdfModel download(String templateName, Object object,List<String> primaryKeys) {
         try{
@@ -328,18 +323,4 @@ public class PdfUtils {
         return null;
     }
 
-    /**
-     * pdf预览
-     *
-     * @param templateName freemarker模板名称(带后缀.ftl)
-     * @param response     HttpServletResponse
-     */
-    public static void preview(String templateName,Map<String, Object> map, HttpServletResponse response) {
-        try (ServletOutputStream out = response.getOutputStream()) {
-            generateAll(templateName, out, map);
-            out.flush();
-        } catch (Exception e) {
-            LOGGER.error(e.getMessage(), e);
-        }
-    }
 }

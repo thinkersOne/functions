@@ -5,7 +5,6 @@ import freemarker.template.TemplateException;
 import org.com.cn.dto.LineAmountDTO;
 import org.com.cn.dto.LongTermContractDTO;
 import org.com.cn.dto.ShortTermContractDTO;
-import org.com.cn.fangxinqian.CommonSign;
 import org.com.cn.model.GeneratePdfModel;
 import org.com.cn.utils.DateTools;
 import org.com.cn.utils.PdfUtils;
@@ -13,10 +12,8 @@ import org.com.cn.utils.TemplateFactory;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -35,7 +32,6 @@ public class PdfController {
     @RequestMapping(value = "previewHtmlLong")
     public String previewHtmlLong() throws IOException, TemplateException {
         LongTermContractDTO longTermContractDTO = generatorPDFObjLong();
-//        String s = TemplateFactory.generateHtmlFromFtl("short_term_pdf.ftl", map);
         String s = TemplateFactory.generateHtmlFromFtl("long_term_pdf.ftl", longTermContractDTO);
         return s;
     }
@@ -46,7 +42,6 @@ public class PdfController {
     @RequestMapping(value = "previewHtmlShort")
     public String previewHtmlShort() throws IOException, TemplateException {
         Map<String, Object> map = generatorPDF();
-//        String s = TemplateFactory.generateHtmlFromFtl("short_term_pdf.ftl", map);
         String s = TemplateFactory.generateHtmlFromFtl("short_term_pdf.ftl", map);
         return s;
     }
@@ -56,6 +51,18 @@ public class PdfController {
         ShortTermContractDTO shortTermContractDTO = generatorPDFObj();
         String s = TemplateFactory.generateHtmlFromFtl("short_term_pdf.ftl", shortTermContractDTO);
         return s;
+    }
+
+    /**
+     * pdf下载
+     * 9
+     */
+    @RequestMapping(value = "downloadContractLong", method = RequestMethod.GET)
+    public String downloadContractLongPDF(HttpServletResponse response) {
+        LongTermContractDTO longTermContractDTO = generatorPDFObjLong();
+        String pdfName = "contract" + DateTools.getTime14() + ".pdf";
+        PdfUtils.download("long_term_pdf.ftl", longTermContractDTO, response, pdfName);
+        return "下载成功!";
     }
 
     /**
@@ -115,7 +122,7 @@ public class PdfController {
         map.put("sellerBankName", "中国银行");
         map.put("sellerBankAccount", "222222222222222");
         map.put("purchaserPhone", "13585865081");
-        map.put("sellerCompanyName", "17621483873");
+        map.put("sellerPhone", "17621483873");
         map.put("signTime", "20200529");
         return map;
     }

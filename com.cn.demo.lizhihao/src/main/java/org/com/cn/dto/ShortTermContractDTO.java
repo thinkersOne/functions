@@ -60,7 +60,19 @@ public class ShortTermContractDTO {
      * 签署时间
      */
     private String signTime;
+    /**
+     * 乙方 电话
+     */
+    private String sellerPhone;
 
+
+    public String getSellerPhone() {
+        return sellerPhone;
+    }
+
+    public void setSellerPhone(String sellerPhone) {
+        this.sellerPhone = sellerPhone;
+    }
 
     public String getPurchaserCompanyName() {
         return purchaserCompanyName;
