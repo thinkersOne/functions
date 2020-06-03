@@ -53,6 +53,21 @@
             .center{
                 text-align: center;
             }
+            /**
+            一排
+             */
+            .purchaserSeal{
+                margin-left: 2%;
+            }
+            .sellerSignature{
+                margin-left: 50%;
+            }
+            .sellerSignature1{
+                margin-left: 55%;
+            }
+            .sellerSignature2{
+                margin-left: 45%;
+            }
         </style>
     </head>
 	<body style="font-family: SimSun">
@@ -171,10 +186,19 @@
 				其中甲方通讯地址，为乙方回单地址。</p>
 			<p>12.4. 未写明通讯地址的，视为公司注册地址为通讯地址。任何一方给付对方的通知、函件等，在到达该方地址时生效（快递发出之日起三日内视为到达）。如任何一方联系方式或通讯地址有误或变更而导致另一方无法及时通知的，由此造成的损失由过错方负责。</p>
             <div class="textIndent">
-				<p><span>甲方（盖章）：</span> &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;<span>乙方（签字）：</span></p>
-				<p>（盖章）&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;（签字）</p>
-				<p>日期：<span class="underline">${signTimeYear}</span> 年 <span class="underline">${signTimeMonth}</span> 月 <span class="underline">${signTimeDay}</span> 日 &#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;日期：<span class="underline">${signTimeYear}</span> 年 <span class="underline">${signTimeMonth}</span> 月 <span class="underline">${signTimeDay}</span> 日 </p>
-			</div>
+                <div>
+                    <span class="purchaserSeal">甲方（盖章）：</span>
+                    <span class="sellerSignature">乙方（签字）：</span>
+                </div>
+                <div>
+                    <span class="purchaserSeal">（盖章）</span>
+                    <span class="sellerSignature1">（签字）</span>
+                </div>
+                <div>
+                    <span class="purchaserSeal">日期：<span class="underline">2012</span> 年 <span class="underline">2</span> 月 <span class="underline">2</span> 日</span>
+                    <span class="sellerSignature2">日期：<span class="underline">2012</span> 年 <span class="underline">2</span> 月 <span class="underline">2</span> 日</span>
+                </div>
+            </div>
 		</div>
     </body>
 </html>
