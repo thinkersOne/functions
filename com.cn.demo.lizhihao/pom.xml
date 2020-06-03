@@ -87,6 +87,12 @@
       <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
+  <!--放心签-->
+    <dependency>
+      <groupId>cn.fangxinqian.operator.sdk</groupId>
+      <artifactId>sdk-operator</artifactId>
+      <version>1.1.2</version>
+    </dependency>
 
   </dependencies>
 

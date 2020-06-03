@@ -1,9 +1,12 @@
 package org.com.cn.controller;
 
+import com.liumapp.qtools.file.base64.Base64FileTool;
 import freemarker.template.TemplateException;
 import org.com.cn.dto.LineAmountDTO;
 import org.com.cn.dto.LongTermContractDTO;
 import org.com.cn.dto.ShortTermContractDTO;
+import org.com.cn.fangxinqian.CommonSign;
+import org.com.cn.model.GeneratePdfModel;
 import org.com.cn.utils.DateTools;
 import org.com.cn.utils.PdfUtils;
 import org.com.cn.utils.TemplateFactory;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.*;
 
@@ -67,10 +71,14 @@ public class PdfController {
     }
 
     @RequestMapping(value = "downloadContractObj", method = RequestMethod.GET)
-    public String downloadContractObj(HttpServletResponse response) {
+    public String downloadContractObj() throws IOException {
         ShortTermContractDTO shortTermContractDTO = generatorPDFObj();
-        String pdfName = "contract" + DateTools.getTime14() + ".pdf";
-        PdfUtils.download("short_term_pdf.ftl", shortTermContractDTO, response, pdfName);
+        List<String> primaryKeys = new ArrayList<>(2);
+        primaryKeys.add("甲方（盖章）：");
+        primaryKeys.add("乙方（签字）：");
+        GeneratePdfModel download = PdfUtils.download("short_term_pdf.ftl", shortTermContractDTO,primaryKeys);
+        String baseStr = Base64FileTool.inputStreamToBase64(download.getInputStream());
+        System.out.println(baseStr);
         return "下载成功!";
     }
 

@@ -4,9 +4,22 @@
  */
 package org.com.cn.utils;
 
+import com.alibaba.fastjson.JSON;
+import com.itextpdf.awt.geom.Rectangle2D;
+import com.itextpdf.text.pdf.parser.ImageRenderInfo;
+import com.itextpdf.text.pdf.parser.PdfReaderContentParser;
+import com.itextpdf.text.pdf.parser.RenderListener;
+import com.itextpdf.text.pdf.parser.TextRenderInfo;
 import com.lowagie.text.pdf.BaseFont;
+//import com.itextpdf.text.pdf.BaseFont;
+import com.lowagie.text.pdf.PdfPageEvent;
+import com.itextpdf.text.pdf.PdfReader;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
+import org.com.cn.model.GeneratePdfModel;
+import org.com.cn.pdf.ITextRenderer3;
+import org.com.cn.pdf.PageEvent;
+import org.com.cn.pdf.RenderCustomListener;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.w3c.dom.Document;
@@ -18,6 +31,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -99,12 +114,16 @@ public class PdfUtils {
      * @throws Exception 模板无法找到、模板语法错误、IO异常
      */
     private static void generateAll( String templateName, OutputStream out,Map<String, Object> map) throws Exception {
-        ITextRenderer renderer = new ITextRenderer();
+//        ITextRenderer renderer = new ITextRenderer();
+        ITextRenderer3 renderer = new ITextRenderer3();
         Document doc = generateDoc(templateName,map);
         renderer.setDocument(doc, null);
         //设置字符集(宋体),此处必须与模板中的<body style="font-family: SimSun">一致,区分大小写,不能写成汉字"宋体"
         ITextFontResolver fontResolver = renderer.getFontResolver();
+//        BaseFont font = BaseFont.createFont("font/simsun.ttc", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
         fontResolver.addFont("font/simsun.ttc", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
+        PageEvent pageEvent = new PageEvent();
+        renderer.setPdfPageEvent(pageEvent);
         //展现和输出pdf
         renderer.layout();
         renderer.createPDF(out, false);
@@ -112,22 +131,143 @@ public class PdfUtils {
 //        renderer.setDocument(docAppend, null);
 //        renderer.writeNextDocument(); //写下一个pdf页面
         renderer.finishPDF(); //完成pdf写入
+        PdfPageEvent pdfPageEvent = renderer.getPdfPageEvent();
+        System.out.println(JSON.toJSONString(pdfPageEvent));
     }
 
-    private static void generateAll( String templateName, OutputStream out,Object object) throws Exception {
+    private static GeneratePdfModel generateAll(String templateName, Object object,List<String> primaryKeys) throws Exception {
+        byte[] fileBytes = null;
+        //文件输出流
+        ByteArrayOutputStream byteArrayOutputStream = null;
         ITextRenderer renderer = new ITextRenderer();
         Document doc = generateDoc(templateName,object);
         renderer.setDocument(doc, null);
+        //字节
+        byteArrayOutputStream = new ByteArrayOutputStream();
         //设置字符集(宋体),此处必须与模板中的<body style="font-family: SimSun">一致,区分大小写,不能写成汉字"宋体"
         ITextFontResolver fontResolver = renderer.getFontResolver();
         fontResolver.addFont("font/simsun.ttc", BaseFont.IDENTITY_H, BaseFont.NOT_EMBEDDED);
         //展现和输出pdf
         renderer.layout();
-        renderer.createPDF(out, false);
-//        Document docAppend = generateDoc(templateName,map);
-//        renderer.setDocument(docAppend, null);
-//        renderer.writeNextDocument(); //写下一个pdf页面
+        renderer.createPDF(byteArrayOutputStream);
         renderer.finishPDF(); //完成pdf写入
+        fileBytes = byteArrayOutputStream.toByteArray();
+        byteArrayOutputStream.close();
+        return getGeneratePdfModel(fileBytes,primaryKeys);
+    }
+
+    /**
+     * 获取 文件流 及 坐标 、页数 等相关信息
+     * @param fileBytes
+     * @return
+     * @throws IOException
+     */
+    public static GeneratePdfModel getGeneratePdfModel(byte[] fileBytes,List<String> primaryKeys) throws IOException {
+        ByteArrayInputStream inputStream = new ByteArrayInputStream(fileBytes);
+        PdfReader pdfReader = new PdfReader(fileBytes);
+        //新建一个PDF解析对象
+        PdfReaderContentParser parser = new PdfReaderContentParser(pdfReader);
+        List<Rectangle2D.Float> floatList = new ArrayList<>(2);
+        //包含了PDF页面的信息，作为处理的对象
+        for(int i = 1;i <= pdfReader.getNumberOfPages();i++){
+            //新建一个ImageRenderListener对象，该对象实现了RenderListener接口，作为处理PDF的主要类
+            RenderCustomListener listener = new RenderCustomListener();
+            //解析PDF，并处理里面的文字
+            parser.processContent(i, listener);
+            List<Map<String,Rectangle2D.Float>> list_text = listener.rows_text_rect;
+            for(int k = 0;k < list_text.size();k++){
+                Map<String,Rectangle2D.Float> map = list_text.get(k);
+                for(Map.Entry<String, Rectangle2D.Float>entry:map.entrySet()){
+                    if(primaryKeys.contains(entry.getKey())){
+                        floatList.add(entry.getValue());
+                    }
+                    System.out.println(entry.getKey()+"---"+entry.getValue());
+                }
+            }
+        }
+        GeneratePdfModel generatePdfModel = new GeneratePdfModel(inputStream,floatList,pdfReader.getNumberOfPages());
+        return generatePdfModel;
+    }
+
+    /**
+     * 根据关键字返回对应的坐标
+     * @param keyWords
+     * @param pdfReader
+     * @return
+     */
+    private static List<List<float[]>> findKeywords(final List<String> keyWords, PdfReader pdfReader) {
+        if (keyWords == null || keyWords.size() == 0) {
+            return null;
+        }
+        int pageNum = pdfReader.getNumberOfPages();
+        final List<List<float[]>> arrayLists = new ArrayList<List<float[]>>(keyWords.size());
+        for (int k=0; k<keyWords.size(); k++) {
+            List<float[]> positions = new ArrayList<float[]>();
+            arrayLists.add(positions);
+        }
+        PdfReaderContentParser pdfReaderContentParser = new PdfReaderContentParser(pdfReader);
+        try {
+            for (int i = 1; i <= pageNum; i++) {
+                final int finalI = i;
+                pdfReaderContentParser.processContent(i, new RenderListener() {
+                    private StringBuilder pdfsb = new StringBuilder();
+                    private float yy = -1f;
+                    @Override
+                    public void renderText(TextRenderInfo textRenderInfo) {
+                        String text = textRenderInfo.getText();
+                        com.itextpdf.awt.geom.Rectangle2D.Float boundingRectange =
+                                textRenderInfo.getBaseline().getBoundingRectange();
+                        if(yy == -1f) {
+                            yy = boundingRectange.y;
+                        }
+                        if(yy != boundingRectange.y) {
+                            yy = boundingRectange.y;
+                            pdfsb.setLength(0);
+                        }
+                        pdfsb.append(text);
+                        if (pdfsb.length()>0) {
+                            for (int j=0; j<keyWords.size(); j++) {
+                                List<String> key_words = ListUtils.parseList
+                                        (keyWords.get(j), ",");
+                                //假如配置了多个关键字，找到一个就跑
+                                for (final String key_word : key_words) {
+                                    if (arrayLists.get(j) != null)
+                                    {
+                                        break;
+                                    }
+                                    if (pdfsb.length()>0 && pdfsb.toString
+                                            ().contains(key_word)) {
+                                        float[] resu = new float[3];
+                                        resu[0] = boundingRectange.x +
+                                                boundingRectange.width * (key_word.length()-1);
+                                        resu[1] = boundingRectange.y;
+                                        resu[2] = finalI;
+                                        arrayLists.get(j).add(resu);
+                                        pdfsb.setLength(0);
+                                        break;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    @Override
+                    public void renderImage(ImageRenderInfo arg0) {
+                        //renderImage
+                    }
+                    @Override
+                    public void endTextBlock() {
+                        //endTextBlock
+                    }
+                    @Override
+                    public void beginTextBlock() {
+                        //beginTextBlock
+                    }
+                });
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return arrayLists;
     }
 
     /**
@@ -158,25 +298,34 @@ public class PdfUtils {
         }
     }
 
-    public static void download(String templateName, Object object, HttpServletResponse response, String fileName) {
-        // 设置编码、文件ContentType类型、文件头、下载文件名
-        response.setCharacterEncoding("utf-8");
-        response.setContentType("multipart/form-data");
-        try {
-            response.setHeader("Content-Disposition", "attachment;fileName=" +
-                    new String(fileName.getBytes("gb2312"), "ISO8859-1"));
-        } catch (UnsupportedEncodingException e) {
-            LOGGER.error(e.getMessage(), e);
-        }
-        ServletOutputStream out = null;
-        try{
-            out = response.getOutputStream();
-            generateAll(templateName, out, object);
-            out.flush();
+//    public static void download(String templateName, Object object, HttpServletResponse response, String fileName) {
+//        // 设置编码、文件ContentType类型、文件头、下载文件名
+//        response.setCharacterEncoding("utf-8");
+//        response.setContentType("multipart/form-data");
+//        try {
+//            response.setHeader("Content-Disposition", "attachment;fileName=" +
+//                    new String(fileName.getBytes("gb2312"), "ISO8859-1"));
+//        } catch (UnsupportedEncodingException e) {
+//            LOGGER.error(e.getMessage(), e);
+//        }
+//        ServletOutputStream out = null;
+//        try{
+//            out = response.getOutputStream();
+//            generateAll(templateName, out, object);
+//            out.flush();
+//
+//        } catch (Exception e) {
+//            LOGGER.error(e.getMessage(), e);
+//        }
+//    }
 
+    public static GeneratePdfModel download(String templateName, Object object,List<String> primaryKeys) {
+        try{
+            return generateAll(templateName, object,primaryKeys);
         } catch (Exception e) {
             LOGGER.error(e.getMessage(), e);
         }
+        return null;
     }
 
     /**

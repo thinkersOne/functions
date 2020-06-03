@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: com.liumapp.qtools.file:qtools-file:v1.3.7">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.m2/repository/com/liumapp/qtools/file/qtools-file/v1.3.7/qtools-file-v1.3.7.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.m2/repository/com/liumapp/qtools/file/qtools-file/v1.3.7/qtools-file-v1.3.7-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.m2/repository/com/liumapp/qtools/file/qtools-file/v1.3.7/qtools-file-v1.3.7-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
