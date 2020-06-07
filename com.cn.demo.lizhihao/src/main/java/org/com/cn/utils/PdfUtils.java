@@ -163,6 +163,7 @@ public class PdfUtils {
         //新建一个PDF解析对象
         PdfReaderContentParser parser = new PdfReaderContentParser(pdfReader);
         List<Rectangle2D.Float> floatList = new ArrayList<>(2);
+        int signPage = pdfReader.getNumberOfPages();//签章默认是最后一页
         //包含了PDF页面的信息，作为处理的对象
         for(int i = 1;i <= pdfReader.getNumberOfPages();i++){
             //新建一个ImageRenderListener对象，该对象实现了RenderListener接口，作为处理PDF的主要类
@@ -175,12 +176,13 @@ public class PdfUtils {
                 for(Map.Entry<String, Rectangle2D.Float>entry:map.entrySet()){
                     if(primaryKeys.contains(entry.getKey())){
                         floatList.add(entry.getValue());
+                        signPage = i;
                     }
                     System.out.println(entry.getKey()+"---"+entry.getValue());
                 }
             }
         }
-        GeneratePdfModel generatePdfModel = new GeneratePdfModel(inputStream,floatList,pdfReader.getNumberOfPages());
+        GeneratePdfModel generatePdfModel = new GeneratePdfModel(inputStream,floatList,signPage);
         return generatePdfModel;
     }
 
