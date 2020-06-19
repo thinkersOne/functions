@@ -2,12 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/fangxinqian/GeneratePersonSign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/fangxinqian/SignOnline.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/com.cn.demo.lizhihao.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/ocr/1.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/functions.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/functions.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/fangxinqian/GenerateSign.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/fangxinqian/GenerateCompanySign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/GenerateSign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_idcard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_idcard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_idcard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_idcard.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PostUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PostUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/RestTemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/RestTemplateService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/TemplateFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/TemplateFactory.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,7 +40,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources/template" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/com/cn/ocr" />
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
@@ -43,12 +49,13 @@
       <recent name="org.com.cn.controller" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr" />
       <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\resources\template" />
       <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main" />
       <recent name="C:\projects\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.GeneratePersonSign">
+  <component name="RunManager" selected="Application.ocr_idcard">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.com.cn.App" />
       <module name="com.cn.demo.lizhihao" />
@@ -116,16 +123,26 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.GeneratePersonSign" />
+        <item itemvalue="Application.ocr_idcard" />
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.GeneratePersonSign" />
         <item itemvalue="Application.GenerateCompanySign" />
         <item itemvalue="Application.ocr_bankcard" />
-        <item itemvalue="Application.ocr_idcard" />
       </list>
     </recent_temporary>
   </component>
   <component name="SvnConfiguration">
     <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="" />
+      <created>1592282450945</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1592282450945</updated>
+    </task>
+    <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="1" />
@@ -140,61 +157,86 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="105" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1590744048638" />
-    <state x="374" y="10" key="CommitChangelistDialog2" timestamp="1590818043171">
+    <state x="534" y="229" key="#xdebugger.evaluate" timestamp="1592476701085">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="374" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590818043171" />
-    <state width="1070" height="466" key="DebuggerActiveHint" timestamp="1590370318510">
+    <state x="534" y="229" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1592476701085" />
+    <state x="374" y="10" key="CommitChangelistDialog2" timestamp="1590894167855">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1070" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1590370318510" />
-    <state width="1493" height="291" key="GridCell.Tab.0.bottom" timestamp="1590892967600">
+    <state x="374" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1590894167855" />
+    <state width="1070" height="466" key="DebuggerActiveHint" timestamp="1592476767337">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="291" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590892967600" />
-    <state width="1493" height="291" key="GridCell.Tab.0.center" timestamp="1590892967599">
+    <state width="1070" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1592476767337" />
+    <state width="1493" height="274" key="GridCell.Tab.0.bottom" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="291" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1590892967599" />
-    <state width="1493" height="291" key="GridCell.Tab.0.left" timestamp="1590892967599">
+    <state width="1493" height="274" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.0.center" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="291" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1590892967599" />
-    <state width="1493" height="291" key="GridCell.Tab.0.right" timestamp="1590892967600">
+    <state width="1493" height="274" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.0.left" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="291" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1590892967600" />
-    <state width="1493" height="272" key="GridCell.Tab.1.bottom" timestamp="1590892890937">
+    <state width="1493" height="274" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.0.right" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1590892890937" />
-    <state width="1493" height="272" key="GridCell.Tab.1.center" timestamp="1590892890937">
+    <state width="1493" height="274" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.1.bottom" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1590892890937" />
-    <state width="1493" height="272" key="GridCell.Tab.1.left" timestamp="1590892890937">
+    <state width="1493" height="274" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.1.center" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1590892890937" />
-    <state width="1493" height="272" key="GridCell.Tab.1.right" timestamp="1590892890937">
+    <state width="1493" height="274" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.1.left" timestamp="1592526814332">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="272" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1590892890937" />
+    <state width="1493" height="274" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
+    <state width="1493" height="274" key="GridCell.Tab.1.right" timestamp="1592526814332">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="274" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1592526814332" />
     <state x="299" y="70" key="Maven.ArtifactSearchDialog" timestamp="1590893632604">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="299" y="70" key="Maven.ArtifactSearchDialog/0.0.1536.824@0.0.1536.824" timestamp="1590893632604" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1590818074571">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1590894207026">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590818074571" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590894207026" />
     <state x="457" y="167" width="621" height="490" key="find.popup" timestamp="1590813186422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="457" y="167" width="621" height="490" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1590813186422" />
-    <state x="479" y="214" key="git4idea.merge.GitPullDialog" timestamp="1590818049137">
+    <state x="479" y="214" key="git4idea.merge.GitPullDialog" timestamp="1590894171453">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="479" y="214" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1590818049137" />
+    <state x="479" y="214" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1590894171453" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_idcard.java</url>
+          <line>93</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_idcard.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_idcard.java</url>
+          <line>82</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

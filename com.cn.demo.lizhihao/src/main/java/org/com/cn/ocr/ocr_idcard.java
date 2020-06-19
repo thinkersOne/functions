@@ -41,8 +41,8 @@ public class ocr_idcard {
         String host = "http://dm-51.data.aliyun.com";
         String path = "/rest/160601/ocr/ocr_idcard.json";
         String appcode = "ee220af4662d4d02a31fd974e3fee6db";
-//        String imgFile = "C:\\projects\\com.cn.demo.lizhihao\\src\\main\\java\\org\\com\\cn\\ocr\\正面照.jpg";
-        String imgFile = "C:\\projects\\com.cn.demo.lizhihao\\src\\main\\java\\org\\com\\cn\\ocr\\反面照.jpg";
+        String imgFile = "C:\\projects\\functions\\com.cn.demo.lizhihao\\src\\main\\java\\org\\com\\cn\\ocr\\1.jpg";
+//        String imgFile = "C:\projects\functions\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr\\反面照.jpg";
         String method = "POST";
 
         Map<String, String> headers = new HashMap<String, String>();
@@ -57,7 +57,7 @@ public class ocr_idcard {
 
         //configure配置
         JSONObject configObj = new JSONObject();
-        configObj.put("side", "back");
+        configObj.put("side", "face");
 
         String config_str = configObj.toString();
 
@@ -91,7 +91,7 @@ public class ocr_idcard {
             String res = EntityUtils.toString(response.getEntity());
             JSONObject res_obj = JSON.parseObject(res);
 
-            System.out.println(res_obj.toJSONString());
+            System.out.println("res:"+res_obj.toJSONString());
         } catch (Exception e) {
             e.printStackTrace();
         }
