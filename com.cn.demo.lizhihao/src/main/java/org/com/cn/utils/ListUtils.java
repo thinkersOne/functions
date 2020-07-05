@@ -22,4 +22,22 @@ public class ListUtils {
             }
         } return strList;
     }
+
+    public static <T> boolean anyList(List<T> list){
+        return list != null && list.size() > 0;
+    }
+
+    public static void main(String[] args) {
+        List<Integer> list = new ArrayList<>(20);
+        list.add(5);
+        list.add(4);
+        list.add(3);
+        list.add(2);
+        System.out.println(list);
+        list.remove(0);
+        System.out.println(list);
+
+    }
+
+
 }
