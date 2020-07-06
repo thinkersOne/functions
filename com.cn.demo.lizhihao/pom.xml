@@ -23,11 +23,7 @@
   </properties>
 
   <dependencies>
-    <dependency>
-      <groupId>com.google.protobuf</groupId>
-      <artifactId>protobuf-java</artifactId>
-      <version>3.9.0</version>
-    </dependency>
+
 <!--阿里云-->
       <dependency>
         <groupId>org.gavaghan</groupId>

@@ -2,56 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/com.google.ortools.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/protobuf.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/geodesy/CaculateDistanceTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/geodesy/GeodesyUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/geodesy/model/LineInfoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/geodesy/model/SiteInfoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/geodesy/model/VehicleInfoModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/ocr/ocr_vehiclecard.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/ocr/行驶证1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/or/tools/CapacitatedVehicleRoutingProblemWithTimeWindows.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/or/tools/FlowExample.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/utils/ListUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/utils/ListUtils.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/App.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/App.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/config/Config.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/config/Config.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/controller/HelloController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/controller/HelloController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/controller/PdfController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/controller/PdfController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/dto/LineAmountDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/dto/LineAmountDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/dto/LongTermContractDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/dto/LongTermContractDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/dto/ShortTermContractDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/dto/ShortTermContractDTO.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/CommonSign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/CommonSign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/GenerateCompanySign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/GenerateCompanySign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/GeneratePersonSign.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/GeneratePersonSign.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/SignOnline.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/SignOnline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/response/GenerateSignResponse.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/fangxinqian/response/GenerateSignResponse.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/model/Area.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/model/Area.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/model/GeneratePdfModel.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/model/GeneratePdfModel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/model/Response.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/model/Response.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/model/Signer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/model/Signer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_bankcard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_bankcard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_drivercard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_drivercard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_idcard.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/ocr/ocr_idcard.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3$NullUserInterface.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3$NullUserInterface.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/ITextRenderer3.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/PageEvent.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/PageEvent.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/RenderCustomListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/pdf/RenderCustomListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/DateTools.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/DateTools.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/HttpUtils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/HttpUtils$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/HttpUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/HttpUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/ListUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/ListUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PdfUtils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PdfUtils$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PdfUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PdfUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PostUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/PostUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/RestTemplateService.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/RestTemplateService.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/StringUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/StringUtils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/utils/TemplateFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/utils/TemplateFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/org/example/AppTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -205,7 +156,14 @@
       <option name="project" value="LOCAL" />
       <updated>1592555055717</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="1">
+      <created>1593993422269</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1593993422269</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -229,10 +187,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="534" y="229" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1592476701085" />
-    <state x="374" y="10" key="CommitChangelistDialog2" timestamp="1592555054463">
+    <state x="374" y="10" key="CommitChangelistDialog2" timestamp="1593993418971">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="374" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1592555054463" />
+    <state x="374" y="10" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1593993418971" />
     <state width="1070" height="466" key="DebuggerActiveHint" timestamp="1593845483088">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -281,10 +239,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1593927656753" />
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1590894207026">
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2" timestamp="1593993432489">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1590894207026" />
+    <state x="361" y="148" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1593993432489" />
     <state x="562" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1593840386602">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -293,9 +251,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="457" y="167" width="621" height="490" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1590813186422" />
-    <state x="479" y="214" key="git4idea.merge.GitPullDialog" timestamp="1592555058456">
+    <state x="479" y="214" key="git4idea.merge.GitPullDialog" timestamp="1593993425074">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="479" y="214" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1592555058456" />
+    <state x="479" y="214" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1593993425074" />
   </component>
 </project>
