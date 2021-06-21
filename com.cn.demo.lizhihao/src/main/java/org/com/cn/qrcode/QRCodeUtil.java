@@ -10,7 +10,6 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.OutputStream;
 import java.util.Hashtable;
-import java.util.Random;
 import javax.imageio.ImageIO;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;
@@ -29,9 +28,9 @@ public class QRCodeUtil {
     // 二维码尺寸
     private static final int QRCODE_SIZE = 300;
     // LOGO宽度
-    private static final int WIDTH = 60;
+    private static final int WIDTH = 100;
     // LOGO高度
-    private static final int HEIGHT = 60;
+    private static final int HEIGHT = 100;
 
     private static BufferedImage createImage(String content, String imgPath, boolean needCompress) throws Exception {
         Hashtable hints = new Hashtable();
