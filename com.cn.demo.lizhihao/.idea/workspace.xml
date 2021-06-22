@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/lala.jpg" afterDir="false" />
+    <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="1">
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/GoogleBarCodeUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QrCodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QrCodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +46,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode" />
     <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.12360942" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\project\functions\com.cn.demo.lizhihao\src\main\java\org\com\cn\qrcode" />
+      <recent name="C:\projects\functions\com.cn.demo.lizhihao\lib" />
+      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr" />
+      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\resources\template" />
+      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\projects\functions\com.cn.demo.lizhihao\lib" />
     </key>
@@ -59,15 +66,8 @@
       <recent name="org.com.cn.dto" />
       <recent name="org.com.cn.controller" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\projects\functions\com.cn.demo.lizhihao\lib" />
-      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr" />
-      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main\resources\template" />
-      <recent name="C:\projects\functions\com.cn.demo.lizhihao\src\main" />
-      <recent name="C:\projects\com.cn.demo.lizhihao\src\main\java\org\com\cn\ocr" />
-    </key>
   </component>
-  <component name="RunManager" selected="Application.QrCodeTest">
+  <component name="RunManager" selected="Application.GoogleBarCodeUtils">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="org.com.cn.App" />
       <module name="com.cn.demo.lizhihao" />
@@ -107,12 +107,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="GeodesyUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="org.com.cn.geodesy.GeodesyUtils" />
+    <configuration name="GoogleBarCodeUtils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="org.com.cn.qrcode.GoogleBarCodeUtils" />
       <module name="com.cn.demo.lizhihao" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="org.com.cn.geodesy.*" />
+          <option name="PATTERN" value="org.com.cn.qrcode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -135,11 +135,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GoogleBarCodeUtils" />
         <item itemvalue="Application.QrCodeTest" />
         <item itemvalue="Application.App" />
         <item itemvalue="Application.CapacitatedVehicleRoutingProblemWithTimeWindows" />
         <item itemvalue="Application.FlowExample" />
-        <item itemvalue="Application.GeodesyUtils" />
       </list>
     </recent_temporary>
   </component>
@@ -176,7 +176,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624264446845</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="1">
+      <created>1624265954432</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1624265954432</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -192,9 +199,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="1" />
     <MESSAGE value="二维码生成" />
-    <option name="LAST_COMMIT_MESSAGE" value="二维码生成" />
+    <MESSAGE value="1" />
+    <option name="LAST_COMMIT_MESSAGE" value="1" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -208,11 +215,6 @@
           <url>jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.1/core-3.4.1.jar!/com/google/zxing/MultiFormatWriter.class</url>
           <line>77</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QRCodeUtil.java</url>
-          <line>40</line>
-          <option name="timeStamp" value="8" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.1/core-3.4.1.jar!/com/google/zxing/qrcode/QRCodeWriter.class</url>
