@@ -4,10 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="1">
-      <change afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/GoogleBarCodeUtils.java" afterDir="false" />
+    <list default="true" id="2e884323-6c39-43cc-bb19-22841ed04f76" name="Default Changelist" comment="生成条形码">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/GoogleBarCodeUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/GoogleBarCodeUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QRCodeUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QRCodeUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QrCodeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QrCodeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/GoogleBarCodeUtils$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/GoogleBarCodeUtils$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/GoogleBarCodeUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/GoogleBarCodeUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/QRCodeUtil.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/QRCodeUtil.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/QrCodeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/org/com/cn/qrcode/QrCodeTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +35,7 @@
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
-        <option name="mavenHome" value="$PROJECT_DIR$/../../../Source/apache-maven-3.8.1-bin/apache-maven-3.8.1" />
+        <option name="mavenHome" value="C:\Source\apache-maven-3.8.1-bin\apache-maven-3.8.1" />
         <option name="userSettingsFile" value="C:\Source\apache-maven-3.8.1-bin\apache-maven-3.8.1\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
@@ -183,7 +189,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624265954432</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="生成条形码">
+      <created>1624360283334</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1624360283334</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -201,16 +214,12 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="二维码生成" />
     <MESSAGE value="1" />
-    <option name="LAST_COMMIT_MESSAGE" value="1" />
+    <MESSAGE value="生成条形码" />
+    <option name="LAST_COMMIT_MESSAGE" value="生成条形码" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/org/com/cn/qrcode/QRCodeUtil.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>jar://$MAVEN_REPOSITORY$/com/google/zxing/core/3.4.1/core-3.4.1.jar!/com/google/zxing/MultiFormatWriter.class</url>
           <line>77</line>

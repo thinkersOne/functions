@@ -7,10 +7,12 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.oned.Code128Writer;
 import org.apache.commons.lang.StringUtils;
+import sun.misc.BASE64Encoder;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
@@ -31,6 +33,10 @@ public class GoogleBarCodeUtils {
     /** 加文字 条形码 */
     private static final int WORDHEIGHT = 75;
     /**
+     * 图片格式
+     */
+    private static final String FORMAT_NAME = "png";
+    /**
      * 设置 条形码参数
      */
     private static Map<EncodeHintType, Object> hints = new HashMap<EncodeHintType, Object>() {
@@ -40,23 +46,27 @@ public class GoogleBarCodeUtils {
             put(EncodeHintType.CHARACTER_SET, "utf-8");
         }
     };
-    /**
-     * 生成 图片缓冲
-     * @author fxbin
-     * @param vaNumber  VA 码
-     * @return 返回BufferedImage
-     */
-    public static BufferedImage getBarCode(String vaNumber){
+
+    public static String getBarCode(String vaNumber){
         try {
             Code128Writer writer = new Code128Writer();
             // 编码内容, 编码类型, 宽度, 高度, 设置参数
             BitMatrix bitMatrix = writer.encode(vaNumber, BarcodeFormat.CODE_128, WIDTH, HEIGHT, hints);
-            return MatrixToImageWriter.toBufferedImage(bitMatrix);
+            BufferedImage image = MatrixToImageWriter.toBufferedImage(bitMatrix);
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();//io流
+            ImageIO.write(image, FORMAT_NAME, baos);//写入流中
+            byte[] bytes = baos.toByteArray();//转换成字节
+            BASE64Encoder encoder = new BASE64Encoder();
+            String png_base64 = encoder.encodeBuffer(bytes).trim();//转换成base64串
+            png_base64 = png_base64.replaceAll("\n", "").replaceAll("\r", "");//删除 \r\n
+            //return 为jpg格式则写jpg ;png则写png
+            return "data:image/"+FORMAT_NAME+";base64,"+png_base64;
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
     }
+
     /**
      * 把带logo的二维码下面加上文字
      * @author fxbin
@@ -123,10 +133,10 @@ public class GoogleBarCodeUtils {
         g2d.setColor(Color.BLACK);
     }
     public static void main(String[] args) throws IOException {
-        BufferedImage image = getBarCode("123456789");
+        String barCode = getBarCode("123456789");
 //        A80/90R8A(8A侧通孔)
 //        BufferedImage image = insertWords(getBarCode("A80/90R8A8A"), "A80/90R8A(8A侧通孔)");
-        ImageIO.write(image, "jpg", new File("C:/project/functions/com.cn.demo.lizhihao/src/main/java/org/com/cn/qrcode/barcode.png"));
+        System.out.println(barCode);
     }
 
 

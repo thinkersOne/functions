@@ -11,11 +11,13 @@ public class QrCodeTest {
         // 生成的二维码的路径及名称
         String destPath = "C:/project/functions/com.cn.demo.lizhihao/src/main/java/org/com/cn/qrcode/test.png";
         //生成二维码
-        QRCodeUtil.encode(text, imgPath, destPath, true);
+//        QRCodeUtil.encode(text, imgPath, destPath, true);
+        String s = QRCodeUtil.createImage(text);
+        System.out.println(s);
         // 解析二维码
-        String str = QRCodeUtil.decode(destPath);
-        // 打印出解析出的内容
-        System.out.println(str);
+//        String str = QRCodeUtil.decode(destPath);
+//        // 打印出解析出的内容
+//        System.out.println(str);
 
     }
 
