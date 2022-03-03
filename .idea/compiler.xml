@@ -7,11 +7,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="functions" />
         <module name="com.cn.demo.lizhihao" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="com.cn.demo.lizhihao" target="1.7" />
+      <module name="functions" target="1.7" />
     </bytecodeTargetLevel>
   </component>
 </project>
