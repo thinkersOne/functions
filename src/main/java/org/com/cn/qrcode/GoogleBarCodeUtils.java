@@ -6,9 +6,8 @@ import com.google.zxing.WriterException;
 import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import com.google.zxing.oned.Code128Writer;
+import io.netty.handler.codec.base64.Base64Encoder;
 import org.apache.commons.lang.StringUtils;
-import sun.misc.BASE64Encoder;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -56,8 +55,8 @@ public class GoogleBarCodeUtils {
             ByteArrayOutputStream baos = new ByteArrayOutputStream();//io流
             ImageIO.write(image, FORMAT_NAME, baos);//写入流中
             byte[] bytes = baos.toByteArray();//转换成字节
-            BASE64Encoder encoder = new BASE64Encoder();
-            String png_base64 = encoder.encodeBuffer(bytes).trim();//转换成base64串
+            Base64Encoder encoder = new Base64Encoder();
+            String png_base64 = encoder.toString().trim();//转换成base64串
             png_base64 = png_base64.replaceAll("\n", "").replaceAll("\r", "");//删除 \r\n
             //return 为jpg格式则写jpg ;png则写png
             return "data:image/"+FORMAT_NAME+";base64,"+png_base64;
